@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import styles from './App.module.css';
 import { Chat } from './components/Chat/chat';
+import { Controls } from './components/Chat/Controls/Controls';
 
 function App() {
-  const [messages, setMessages] = useState(MESSAGES);
+  const [messages, setMessages] = useState([]);
+
+function handleContentSend(content){
+  setMessages((prevMessages)=>[...prevMessages, { content, role:"user"}])
+}
 
   return (
     <div className={styles.App}>
@@ -14,43 +19,9 @@ function App() {
       <div className={styles.ChatContainer}>
         <Chat messages={messages} />
       </div>
+      <Controls onSend={handleContentSend}/>
     </div>
   );
 }
 
-const MESSAGES = [
-  {
-    role: 'user',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'assistant',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'user',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'assistant',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'user',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'assistant',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'user',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-  {
-    role: 'assistant',
-    content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, blanditiis, aspernatur in impedit, animi eum dolore porro autem non totam velit dicta asperiores quaerat qui dolores earum veritatis repellat quis illum consequuntur assumenda! Tempore, qui?",
-  },
-]
-
-export default App
+export default App;
