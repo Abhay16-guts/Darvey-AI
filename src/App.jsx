@@ -4,9 +4,9 @@ import styles from './App.module.css';
 import { Chat } from './components/Chat/chat';
 import { Controls } from './components/Chat/Controls/Controls';
 
-const googleai = new GoogleGenAI(import.meta.env.VITE_GEMINI_API_KEY);
-const gemini = googleai.getGenerativeModel({model: "gemini-1.5-flash",});
-const chat = gemini.startChat({history: [],});
+// const googleai = new GoogleGenAI(import.meta.env.VITE_GEMINI_API_KEY);
+// const gemini = googleai.getGenerativeModel({model: "gemini-1.5-flash",});
+// const chat = gemini.startChat({history: [],});
 
 function App() {
   const [messages, setMessages] = useState([]);
